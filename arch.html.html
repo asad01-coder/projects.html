@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BuildCraft Engineers</title>
+
+</head>
+<style>
+  /* ===== Global Styles ===== */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #fff;
+    color: #222;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+    background-color: #111;
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  .logo span {
+    color: #ccc;
+  }
+
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+  }
+
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover {
+    color: #aaa;
+  }
+
+  .menu-toggle {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+  }
+
+  /* ===== Hero Section ===== */
+  .hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1350&q=80') center/cover;
+    color: white;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-content h1 {
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+  }
+
+  .hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+  }
+
+  .btn {
+    background-color: #555;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: background 0.3s;
+  }
+
+  .btn:hover {
+    background-color: #555;
+    color: white;
+
+  }
+
+  /* ===== Sections ===== */
+  .section {
+    padding: 80px 60px;
+    text-align: center;
+  }
+
+  .section h2 {
+    font-size: 2rem;
+    color: #111;
+    margin-bottom: 40px;
+  }
+
+  /* ===== Services ===== */
+  .service-cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+
+  .card {
+    background-color: #f5f5f5;
+    padding: 30px;
+    width: 300px;
+    border-radius: 10px;
+    transition: transform 0.3s;
+  }
+
+  .card:hover {
+    transform: translateY(-10px);
+  }
+
+  /* =====project =======*/
+  .projects {
+    background-color: #f5f5f5;
+    padding: 80px 10%;
+    text-align: center;
+  }
+
+  .section-title {
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  .project-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+  }
+
+  .project-card {
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .project-info {
+    padding: 20px;
+  }
+
+  .project-info h3 {
+    color: #111;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+  }
+
+  .project-info p {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  /* ===== Certificate ===== */
+  .certificate-section {
+    background-color: #f5f5f5;
+    color: #333;
+    padding: 80px 0;
+    text-align: center;
+  }
+
+  .section-title {
+    font-size: 2.2em;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 10px;
+  }
+
+  .section-subtitle {
+    color: #666;
+    margin-bottom: 50px;
+    font-size: 1.1em;
+  }
+
+  .certificate-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 0 30px;
+  }
+
+  .certificate-card {
+    background: #e4e2e2;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+  }
+
+  .certificate-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .certificate-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+  }
+
+  .certificate-card h3 {
+    font-size: 1.3em;
+    color: #000;
+    margin: 15px 0 10px;
+  }
+
+  .certificate-card p {
+    font-size: 0.95em;
+    color: #555;
+    padding: 0 15px 20px;
+  }
+
+  /* ===== Contact ===== */
+  .contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+
+  .info-card {
+    background-color: #f5f5f5;
+    padding: 25px 35px;
+    border-radius: 10px;
+    width: 250px;
+    text-align: left;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+  }
+
+  .info-card:hover {
+    transform: translateY(-8px);
+  }
+
+  .info-card h3 {
+    color: #111;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+  }
+
+  .info-card p,
+  .info-card a {
+    color: #333;
+    text-decoration: none;
+    font-size: 0.95rem;
+  }
+
+  .map-container {
+    border-radius: 10px;
+    overflow: hidden;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  /* ===== Footer ===== */
+  footer {
+    background-color: #111;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.9rem;
+  }
+
+  /* ===== Responsive ===== */
+
+
+  .footer {
+    background-color: #111;
+    color: #fff;
+    padding: 30px 40px 30px;
+    font-family: "Poppins", sans-serif;
+  }
+
+  .box {
+    display: flex;
+    gap: 300px;
+  }
+
+  .footer-contact p {
+    color: #aaa;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .footer-social .social-icons {
+    display: flex;
+    gap: 20px;
+  }
+
+  .footer-social img {
+    width: 28px;
+    height: 28px;
+    filter: brightness(0) invert(1);
+    transition: transform 0.3s;
+  }
+
+  .footer-social img:hover {
+    transform: scale(1.1);
+  }
+
+  .footer-bottom {
+    border-top: 1px solid #333;
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 15px;
+    color: #777;
+    font-size: 0.9rem;
+  }
+
+  /* ====== Full Responsive Design ====== */
+
+  @media (max-width: 992px) {
+    header {
+      padding: 15px 30px;
+    }
+
+    .hero-content h1 {
+      font-size: 2.2rem;
+    }
+
+    .hero-content p {
+      font-size: 1rem;
+    }
+
+    .section {
+      padding: 60px 30px;
+    }
+
+    .certificate-card,
+    .project-card {
+      width: 100%;
+      max-width: 450px;
+    }
+
+    .info-card {
+      width: 300px;
+    }
+
+    .box {
+      gap: 100px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+
+  /* --- Mobile Phones --- */
+  @media (max-width: 768px) {
+
+    /* Header */
+    header {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .menu-toggle {
+      display: block;
+    }
+
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      background-color: #111;
+      position: absolute;
+      top: 70px;
+      right: 0;
+      width: 220px;
+      padding: 20px;
+      border-radius: 0 0 8px 8px;
+    }
+
+    .nav-links.active {
+      display: flex;
+    }
+
+    .nav-links a {
+      padding: 10px 0;
+      font-size: 1rem;
+    }
+
+    /* Hero */
+    .hero {
+      height: 70vh;
+      padding: 0 20px;
+    }
+
+    .hero-content h1 {
+      font-size: 1.8rem;
+    }
+
+    .hero-content p {
+      font-size: 1rem;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      font-size: 0.9rem;
+    }
+
+    /* Services */
+    .service-cards {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .card {
+      width: 90%;
+    }
+
+    /* Projects */
+    .projects {
+      padding: 60px 20px;
+    }
+
+    .project-container {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    /* Certificates */
+    .certificate-container {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .certificate-card {
+      width: 90%;
+    }
+
+    .certificate-card img {
+      height: 200px;
+    }
+
+    /* Contact */
+    .contact-info {
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .info-card {
+      width: 90%;
+    }
+
+    .map-container iframe {
+      height: 300px;
+    }
+
+    /* Footer */
+    .box {
+      flex-direction: column;
+      gap: 30px;
+      text-align: center;
+    }
+
+    .footer-social .social-icons {
+      justify-content: center;
+    }
+
+    .footer-bottom {
+      margin-top: 20px;
+    }
+  }
+
+  /* --- Extra small devices (less than 480px) --- */
+  @media (max-width: 480px) {
+    .hero-content h1 {
+      font-size: 1.5rem;
+    }
+
+    .hero-content p {
+      font-size: 0.9rem;
+    }
+
+    .btn {
+      padding: 8px 18px;
+      font-size: 0.85rem;
+    }
+
+    .section h2 {
+      font-size: 1.6rem;
+    }
+
+    .certificate-card h3,
+    .project-info h3 {
+      font-size: 1.1rem;
+    }
+
+    .certificate-card p,
+    .project-info p {
+      font-size: 0.9rem;
+    }
+
+    .footer {
+      padding: 20px;
+    }
+
+    .footer-bottom p {
+      font-size: 0.8rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .footer-container {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .footer-social .social-icons {
+      justify-content: center;
+    }
+  }
+
+  */
+</style>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">ArchBase <span>Consultancy</span></div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#Certificate">Certificate</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1>We design your desires</h1>
+      <p>Architectural & Civil Engineering Excellence</p>
+      <a href="#services" class="btn">Explore Services</a>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="services section">
+    <h2>Our Services</h2>
+    <div class="service-cards">
+      <div class="card">
+        <h3>Architectural Design</h3>
+        <p>Creative and functional designs tailored to your vision and space requirements.</p>
+      </div>
+      <div class="card">
+        <h3>Structural Engineering</h3>
+        <p>Safe, sustainable, and efficient structural solutions for all types of projects.</p>
+      </div>
+      <div class="card">
+        <h3>Construction Management</h3>
+        <p>Expert oversight ensuring quality, timelines, and cost-effectiveness.</p>
+      </div>
+      <div class="card">
+        <h3>Town Planning</h3>
+        <p>Transforming land into thriving, organized, and sustainable communities.</p>
+      </div>
+      <div class="card">
+        <h3>Interior Design</h3>
+        <p>Designing beautiful and comfortable interiors that reflect your personality.</p>
+      </div>
+      <div class="card">
+        <h3>Quantity Estimation</h3>
+        <p>Expert in accurate quantity takeoffs and cost assessments for every project.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section class="projects" id="projects">
+    <h2 class="section-title">Our Projects</h2>
+    <div class="project-container">
+
+      <div class="project-card">
+        <img src="./banglow.JPG" alt="Structural Engineering Project">
+        <div class="project-info">
+          <h3>BUNGALOW </h3>
+          <p>AT BLOCK # 06 GULSHAN-E-IQBAL KARACHI. </p>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="./shoping.JPG" alt="Urban Planning Project">
+        <div class="project-info">
+          <h3>Shopping Center & Apartment Building </h3>
+          <p>At Sb-4 Karachi Rajput CHS Scheme 33, Karachi.</p>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="./big height.JPG" alt="Interior Design Work">
+        <div class="project-info">
+          <h3>BIG HEIGHTS
+            Shops & Apartments</h3>
+          <p>Shops & Apartments Building B+G+6 Karachi Rajput Society Scheme # 33 Karachi.</p>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="./pin corner.JPG" alt="Structural Engineering Project">
+        <div class="project-info">
+          <h3>PINE CORNER
+            Shops & Apartments</h3>
+          <p>Karachi Rajput C.H.S. Scheme#33 Karachi.</p>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="./gate.JPG" alt="Structural Engineering Project">
+        <div class="project-info">
+          <h3>Society Entrance Gate</h3>
+          <p>Muslim Cutchi Khatri Society Scheme # 33 Karachi.</p>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="./town plan.JPG" alt="Structural Engineering Project">
+        <div class="project-info">
+          <h3>New Khatri City</h3>
+          <p>Near national tiles and opposite dadabhoy cement at M-9 Moterway</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <!-- Certificate -->
+  <section id="Certificate" class="certificate-section">
+    <h2 class="section-title">AUTHORIZED IN PROFESSIONAL BODIES </h2>
+    <p class="section-subtitle">Recognized for excellence in architecture and civil engineering</p>
+
+    <div class="certificate-container">
+      <div class="certificate-card">
+        <img src="./pcatp.png" alt="Certificate of Excellence">
+        <h3>Authorized in PCATP</h3>
+      </div>
+
+      <div class="certificate-card">
+        <img src="./dha.png" alt="ISO Certification">
+        <h3>Authorized in Contoment Board Clifton </h3>
+      </div>
+
+      <div class="certificate-card">
+        <img src="./sbca.png" alt="Green Building Award">
+        <h3>Authorized in SBCA</h3>
+      </div>
+    </div>
+  </section>
+  <!-- Contact -->
+  <section id="contact" class="contact section">
+    <h2>Contact Us</h2>
+    <div class="contact-info">
+      <div class="info-card">
+        <h3>Office Location</h3>
+        <p>KCCHS,Karachi, Pakistan</p>
+      </div>
+      <div class="info-card">
+        <h3>Email</h3>
+        <p><a href="syedsaadali503@gmail.com">syedsaadali503@gmail.com</a></p>
+        <p><a href="syed.alifahad90@gmail.com">syed.alifahad90@gmail.com</a></p>
+      </div>
+      <div class="info-card">
+        <h3>Phone</h3>
+        <p><a href="tel:+923001170606">+92 3001170606</a></p>
+        <p><a href="tel:+923123095141">+92 3123095141</a></p>
+        <p><a href="tel:+92 3114926789"> +92 3114926789</a></p>
+      </div>
+      <div class="info-card">
+        <h3>Working Hours</h3>
+        <p>Mon – Sat: 9:00 AM – 6:00 PM</p>
+      </div>
+    </div>
+
+    <div class="map-container">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3620.879423693257!2d67.00113607537393!3d24.86073417793337!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33bb3b2c3f1a5%3A0xacf5e9c2f9b8b25b!2sKarachi%20Pakistan!5e0!3m2!1sen!2s!4v1717631165647!5m2!1sen!2s"
+        width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy">
+      </iframe>
+    </div>
+  </section>
+
+
+  <!-- Footer -->
+  <footer class="footer">
+    <section class="box">
+      <div class="footer-contact">
+        <h4>Contact Info</h4>
+        <br>
+        <p><strong>Address:</strong> KCCHS, Karachi, Pakistan</p>
+        <p><strong>Phone:</strong> +92 3001170606</p>
+        <p><strong>Phone:</strong> +92 3123095141</p>
+        <p><strong>Phone:</strong> +92 3114926789</p>
+      </div>
+
+      <div class="footer-social">
+        <h4>Follow Us</h4>
+        <br>
+        <div class="social-icons">
+          <a href="https://www.linkedin.com/in/syed-asad-ali-502b88315/"><img
+              src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn"></a>
+        </div>
+      </div>
+      </div>
+    </section>
+    <div class="footer-bottom">
+      <p>© 2025 BuildCraft Engineers. All Rights Reserved.</p>
+    </div>
+
+  </footer>
+
+</body>
+
+</html>
